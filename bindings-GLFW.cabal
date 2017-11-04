@@ -74,12 +74,12 @@ flag MacOSXUseRetina
 flag X
   description:
     Linux only. Determines whether to target the X11 display server.
-  default: True
+  default: False
 
 flag Wayland
   description:
     Linux only. Determines whether to target the Wayland display server.
-  default: False
+  default: True
 
 flag Mir
   description:
@@ -150,6 +150,7 @@ library
           glfw/src/wl_init.c
           glfw/src/wl_monitor.c
           glfw/src/wl_window.c
+        cc-options: -U_GLFW_X11 -D_GLFW_WAYLAND -U_GLFW_GLX -D_GLFW_EGL
       if flag(Mir)
         c-sources:
           glfw/src/egl_context.c

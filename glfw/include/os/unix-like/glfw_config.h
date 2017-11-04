@@ -33,7 +33,14 @@
 // are using your own build system, make this file define the appropriate
 // macros in whatever way is suitable.
 //========================================================================
-
+#warning "*************************** here"
+#ifdef _GLFW_X11
+#warning "X11"
+#endif 
+#ifdef _GLFW_WAYLAND
+#warning "WAYLAND"
+#endif
+#ifndef _GLFW_WAYLAND
 // Define this to 1 if building GLFW for X11
 #define _GLFW_X11
 // Define this to 1 if building GLFW for Win32
@@ -53,7 +60,7 @@
 /* #undef _GLFW_WGL */
 // Define this to 1 if building GLFW for NSGL
 /* #undef _GLFW_NSGL */
-
+#endif
 // Define this to 1 if building as a shared library / dynamic library / DLL
 /* #undef _GLFW_BUILD_DLL */
 
